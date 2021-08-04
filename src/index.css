@@ -1,13 +1,112 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body, #root {
+    width: 100vw;
+    height: 100vh;
 }
+
+html, body {
+    overflow: hidden;
+}
+
+#root {
+    overflow: auto;
+}
+
+
+
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline {
+    display: inline;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+
+
+.pieTranslate {
+    /*animation: 2.6s cubic-bezier(0.71, -0.29, 0.96, 0.9) 0s 1 normal forwards running spin,*/
+    /*0.75s linear 2.6s 1 normal forwards running continueSpin,*/
+    /*8s cubic-bezier(0, 0, 0.35, 1.02) 3.35s 1 normal forwards running stopSpin;*/
+    transition: transform 5s;
+    transform: rotate(4999deg);
+}
+
+.roulette {
+    position: relative;
+}
+
+.food {
+    min-width: 534px;
+    height: 100%;
+    background-color: #cee9e7;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg);
+
+    }
+}
+
+
+@keyframes continueSpin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg);
+
+    }
+}
+
+
+@keyframes stopSpin {
+    0% {
+        transform: rotate(360deg)
+    }
+    100% {
+        transform: rotate(0deg);
+
+    }
+}
+
+/*
+
+
+rotate(-137.493deg)√
+
+*/
