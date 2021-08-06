@@ -43,10 +43,6 @@ export const RandomFoodRoulette: FC<RandomFoodRouletteProps> = ({title}) => {
         { title: "치킨", color: "#F28907"},
     ];
 
-    useEffect(()=>{
-        const canvas = elementRef.current;
-        const ctx = canvas?.getContext("2d");
-    })
 
     const onHandleRoulette = () => {
         const value = Math.floor((Math.random() * 360) + (365 * 5));

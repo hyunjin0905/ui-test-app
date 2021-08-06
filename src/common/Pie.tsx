@@ -48,14 +48,14 @@ const Pie: FC<PieProps> = ((props) => {
         const center_x = ctxCanvas_width? ctxCanvas_width / 2 : 0;
         const center_y = ctxCanvas_height? ctxCanvas_height / 2 : 0;
 
-        console.log(Math.cos(30) * 250 );
         for (let i = 0; i < infos.length; i++) {
             const realAngle = (360 / 10) * i + 17;
             const x = Math.round(230 + Math.cos(realAngle * ( Math.PI / 180)) * 100);
             const y = Math.round(230 + Math.sin(realAngle * ( Math.PI / 180)) * 100);
             ctxCanvas.fillStyle = infos[i].color;
-            ctxCanvas.beginPath();
+            ctxCanvas.beginPath(); // 새경로를 만듬
             ctxCanvas.moveTo(center_x, center_y);
+            // (x,y, 반지름, 시작각도, 마지막각도
             ctxCanvas.arc(center_x, center_y, 250, angle * i, angle * (i + 1), false);
             ctxCanvas.lineTo(center_x, center_y);
             ctxCanvas.fill();

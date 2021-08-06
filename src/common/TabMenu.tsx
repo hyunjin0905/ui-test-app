@@ -3,7 +3,7 @@ import { Food } from "../page/food";
 
 enum TabId {
     FOOD = "FOOD",
-    PIANO = "PIANO"
+    ETC = "ETC"
 }
 
 const TabMenu = () => {
