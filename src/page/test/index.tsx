@@ -8,12 +8,25 @@ interface TestProps {
 const Test: FC<TestProps> = (props) => {
     const [ c, setC ] = useState<number>(0);
     const [ name, setName ] = useState<string>("");
+    const Count = memo((props: { count: number }) => {
+        console.log(props);
+        return (
+            <div>{ props.count }</div>
+        );
+    })
+
+    const Button = memo((props: { add: () => void, count: number }) => {
+        console.log(props);
+        return (
+            <button onClick={props.add}>{ props.count }++</button>
+        )
+    })
 
     const onChangeNameClick = () => {
         setName(`${Date.now()} 님`);
     }
 
-    const add = useCallback(() => setC(prev => prev + 1), [])
+    const add = () => setC(prev => prev + 1)
 
     return (
         <>
@@ -27,18 +40,5 @@ const Test: FC<TestProps> = (props) => {
     )
 }
 
-const Count = memo((props: { count: number }) => {
-    console.log(props);
-    return (
-        <div>{ props.count }</div>
-    );
-})
-
-const Button = memo((props: { add: () => void, count: number }) => {
-    console.log(props);
-    return (
-        <button onClick={props.add}>{ props.count }++</button>
-    )
-})
 
 export default Test;
