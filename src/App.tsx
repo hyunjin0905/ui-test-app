@@ -2,6 +2,7 @@ import React, { FC, memo, ReactElement, ReactNode, useCallback, useState } from 
 import logo from './logo.svg';
 import './App.css';
 import TabMenu from "./common/TabMenu";
+import Test from "./page/test";
 
 function App() {
   return (
@@ -16,43 +17,3 @@ function App() {
 
 export default App;
 
-// diff algorithm
-interface TestProps {
-    name?: string;
-}
-
-const Test: FC<TestProps> = (props) => {
-    const [ c, setC ] = useState<number>(0);
-    const [ name, setName ] = useState<string>("");
-
-    const onChangeNameClick = () => {
-        setName(`${Date.now()} 님`);
-    }
-
-    const add = useCallback(() => setC(prev => prev + 1), [])
-
-    return (
-        <>
-            <Count count={c} />
-            <Button add={add} count={c} />
-            <div>
-                <button onClick={onChangeNameClick}>change name</button>
-                <p>{ name }</p>
-            </div>
-        </>
-    )
-}
-
-const Count = memo((props: { count: number }) => {
-    console.log(props);
-    return (
-        <div>{ props.count }</div>
-    );
-})
-
-const Button = memo((props: { add: () => void, count: number }) => {
-    console.log(props);
-    return (
-        <button onClick={props.add}>{ props.count }++</button>
-    )
-})
